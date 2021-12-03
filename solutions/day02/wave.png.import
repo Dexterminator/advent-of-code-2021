@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/submarine.png-7d614bce3406ddd3c4d42170a6f2bddd.stex"
+path="res://.import/wave.png-9f76ad8b4bd4777115567cb0533ec0c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://solutions/day01/submarine.png"
-dest_files=[ "res://.import/submarine.png-7d614bce3406ddd3c4d42170a6f2bddd.stex" ]
+source_file="res://solutions/day02/wave.png"
+dest_files=[ "res://.import/wave.png-9f76ad8b4bd4777115567cb0533ec0c6.stex" ]
 
 [params]
 

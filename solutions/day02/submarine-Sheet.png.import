@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/submarine.png-7d614bce3406ddd3c4d42170a6f2bddd.stex"
+path="res://.import/submarine-Sheet.png-59885d97400bad4afcc5571e1967f98b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://solutions/day01/submarine.png"
-dest_files=[ "res://.import/submarine.png-7d614bce3406ddd3c4d42170a6f2bddd.stex" ]
+source_file="res://solutions/day02/submarine-Sheet.png"
+dest_files=[ "res://.import/submarine-Sheet.png-59885d97400bad4afcc5571e1967f98b.stex" ]
 
 [params]
 
