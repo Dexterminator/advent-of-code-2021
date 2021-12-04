@@ -19,9 +19,6 @@ func init_viz(bin_nums):
 			hbox.add_child(label)
 
 func update_counts(x, y, counts):
-	if x != 0 and y == 0:
-		yield(get_tree().create_timer(2), "timeout")
-
 	ones.text = "ONES: " + str(counts["1"])
 	zeroes.text = "ZEROES: " + str(counts["0"])
 	var num_label = labels.get_children()[y].get_children()[x]
@@ -30,6 +27,17 @@ func update_counts(x, y, counts):
 	camera.global_position.y = num_label.rect_global_position.y - 100
 	num_label.modulate = Color.white
 
+func update_labels(filtered_nums):
+	var a = Anima.begin(self)
+	for hbox in labels.get_children():
+		a.with({node=hbox, property="modulate", to=Color(1,1,1,0), duration=0.5})
+	a.play()
+	yield(a, "animation_completed")
+	for hbox in labels.get_children():
+		hbox.queue_free()
+	camera.global_position.y = 0
+	yield(get_tree().create_timer(0.5), "timeout")
+	init_viz(filtered_nums)
 
 
 #-------------SOLUTION----------------#
@@ -51,6 +59,7 @@ func filter_nums(bin_nums, i, filter_char, should_equal):
 func get_rating(bin_nums, should_equal):
 	var curr_nums = bin_nums
 	for x in len(bin_nums[0]):
+		viz_steps.push_back(["update_labels", Array(curr_nums).duplicate()])
 		var counts = {"0": 0, "1": 0}
 		for y in len(curr_nums):
 			counts[curr_nums[y][x]] += 1
