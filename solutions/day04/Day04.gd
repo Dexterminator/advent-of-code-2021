@@ -3,6 +3,7 @@ extends Node2D
 onready var BingoBoard = preload("res://solutions/day04/BingoBoard.tscn")
 onready var board_grid = $BoardGrid
 onready var octopus = $Octopus
+var is_part1 = true
 var example_input = """7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
 22 13 17 11  0
@@ -53,7 +54,7 @@ func solve():
 	
 	for num in nums:
 		get_tree().call_group("boards", "light_up_square", num)
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(get_tree().create_timer(0.2), "timeout")
 
 func _ready():
 	var a = Anima.begin(self)

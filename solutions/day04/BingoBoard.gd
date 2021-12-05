@@ -52,7 +52,11 @@ func light_up_square(num):
 		a.play()
 
 		if row_counts[square.y] == 5 or column_counts[square.x] == 5:
-			bingo = true
-			done = true
-			print(get_score(num))
-			get_tree().call_group("boards", "fade")
+			queue_free()
+			var curr_boards = get_tree().get_nodes_in_group("boards")
+			if len(curr_boards) == 1:
+				print(get_score(num))
+			# bingo = true
+			# done = true
+			# print(get_score(num))
+			# get_tree().call_group("boards", "fade")
