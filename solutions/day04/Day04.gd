@@ -1,6 +1,9 @@
 extends Node2D
 
-var input = """7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
+onready var BingoBoard = preload("res://solutions/day04/BingoBoard.tscn")
+onready var board_grid = $BoardGrid
+onready var octopus = $Octopus
+var example_input = """7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
 22 13 17 11  0
  8  2 23  4 24
@@ -25,10 +28,11 @@ func part1(nums, board):
 	pass
 
 func solve():
+	var input = Utils.slurp("res://solutions/day04/input.txt")
 	var parts = Array(input.split("\n\n"))
 	var nums = []
 	for x in parts[0].split(","):
-		nums.push_back(int(x))
+		nums.push_back(x)
 
 	var boards = []
 	for board_string in parts.slice(1, len(parts)):
@@ -38,10 +42,23 @@ func solve():
 		for line_string in board_lines:
 			var line = []
 			var matches = Utils.regex_list(line_string, "\\d+")
-			for m in matches:
-				line.push_back(int(m))
+			for m in matches: line.push_back(int(m))
 			board.push_back(line)
 		boards.push_back(board)
+	
+	for b in boards:
+		var board = BingoBoard.instance()
+		board_grid.add_child(board)
+		board.init(b)
+	
+	for num in nums:
+		get_tree().call_group("boards", "light_up_square", num)
+		yield(get_tree().create_timer(0.5), "timeout")
 
 func _ready():
+	var a = Anima.begin(self)
+	a.then({node=octopus, property="x", duration=1, to=100, relative=true})
+	a.then({node=octopus, property="x", duration=1, to=-100, relative=true})
+	a.loop()
+
 	solve()

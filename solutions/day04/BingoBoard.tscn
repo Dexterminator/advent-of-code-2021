@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://solutions/day04/BingoSquare.tscn" type="PackedScene" id=2]
+[ext_resource path="res://solutions/day04/BingoBoard.gd" type="Script" id=3]
+
+[node name="BingoBoard" type="VBoxContainer" groups=["boards"]]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+custom_constants/separation = 0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 46.0
+margin_bottom = 13.0
+
+[node name="BingoSquare" parent="HBoxContainer" instance=ExtResource( 2 )]
+
+[node name="BingoSquare2" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 10.0
+margin_right = 16.0
+
+[node name="BingoSquare3" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_right = 26.0
+
+[node name="BingoSquare4" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_right = 36.0
+
+[node name="BingoSquare5" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_left = 40.0
+margin_right = 46.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_top = 13.0
+margin_right = 46.0
+margin_bottom = 26.0
+
+[node name="BingoSquare" parent="HBoxContainer2" instance=ExtResource( 2 )]
+
+[node name="BingoSquare2" parent="HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 10.0
+margin_right = 16.0
+
+[node name="BingoSquare3" parent="HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_right = 26.0
+
+[node name="BingoSquare4" parent="HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_right = 36.0
+
+[node name="BingoSquare5" parent="HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 40.0
+margin_right = 46.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+margin_top = 26.0
+margin_right = 46.0
+margin_bottom = 39.0
+
+[node name="BingoSquare" parent="HBoxContainer3" instance=ExtResource( 2 )]
+
+[node name="BingoSquare2" parent="HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 10.0
+margin_right = 16.0
+
+[node name="BingoSquare3" parent="HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_right = 26.0
+
+[node name="BingoSquare4" parent="HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_right = 36.0
+
+[node name="BingoSquare5" parent="HBoxContainer3" instance=ExtResource( 2 )]
+margin_left = 40.0
+margin_right = 46.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="."]
+margin_top = 39.0
+margin_right = 46.0
+margin_bottom = 52.0
+
+[node name="BingoSquare" parent="HBoxContainer4" instance=ExtResource( 2 )]
+
+[node name="BingoSquare2" parent="HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 10.0
+margin_right = 16.0
+
+[node name="BingoSquare3" parent="HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_right = 26.0
+
+[node name="BingoSquare4" parent="HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_right = 36.0
+
+[node name="BingoSquare5" parent="HBoxContainer4" instance=ExtResource( 2 )]
+margin_left = 40.0
+margin_right = 46.0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="."]
+margin_top = 52.0
+margin_right = 46.0
+margin_bottom = 65.0
+
+[node name="BingoSquare" parent="HBoxContainer5" instance=ExtResource( 2 )]
+
+[node name="BingoSquare2" parent="HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 10.0
+margin_right = 16.0
+
+[node name="BingoSquare3" parent="HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_right = 26.0
+
+[node name="BingoSquare4" parent="HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 30.0
+margin_right = 36.0
+
+[node name="BingoSquare5" parent="HBoxContainer5" instance=ExtResource( 2 )]
+margin_left = 40.0
+margin_right = 46.0
