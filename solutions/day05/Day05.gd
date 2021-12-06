@@ -9,7 +9,8 @@ onready var label = $Node2D/Label
 func new_line():
 	current_line = Line2D.new()
 	current_line.width = 1
-	current_line.default_color = Color.lightcoral
+	current_line.default_color = Color.white
+	current_line.self_modulate = Color(1,1,1,0.05)
 	add_child(current_line)
 
 func update_viz(coord, count):
