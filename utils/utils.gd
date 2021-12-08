@@ -40,3 +40,19 @@ func visualize(viz_steps, inst):
 		var f = funcref(inst, func_name).call_funcv(args)
 		if f is GDScriptFunctionState:
 			yield(f, "completed")
+
+class Set:
+	var _dict
+
+	func _init():
+		_dict = {}
+
+	func add(x):
+		_dict[x] = x
+
+	func add_all(coll):
+		for x in coll:
+			_dict[x] = x
+
+	func size():
+		return len(_dict)
