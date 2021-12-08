@@ -92,21 +92,13 @@ func part1(bin_nums):
 
 	return gamma * epsilon
 
-func visualize():
-	for step in viz_steps:
-		var func_name = step[0]
-		var args = step.slice(1, len(step))
-		var f = funcref(self, func_name).call_funcv(args)
-		if f is GDScriptFunctionState:
-			yield(f, "completed")
-
 func solve():
 	var text = Utils.slurp("res://solutions/day03/input.txt")
 	var bin_nums = text.split("\n")
 	init_viz(bin_nums)
 	print(part1(bin_nums))
 	print(part2(bin_nums))
-	visualize()
 
 func _ready():
 	solve()
+	Utils.visualize(viz_steps, self)

@@ -1,5 +1,11 @@
 extends Node2D
 
+var viz_steps = []
+
+func update_viz(n):
+	print(n)
+	yield(get_tree().create_timer(0.2), "timeout")
+
 func get_crab_engineering_fuel(target, nums):
 	var fuel = 0
 	for n in nums:
@@ -16,6 +22,7 @@ func get_fuel(target, nums):
 func get_min_fuel(nums, get_fuel_funcref):
 	var min_fuel = Utils.MAX_INT
 	for n in nums:
+		viz_steps.push_back(["update_viz", n])
 		var fuel = get_fuel_funcref.call_func(n, nums)
 		if fuel < min_fuel:
 			min_fuel = fuel
@@ -28,13 +35,14 @@ func part1(nums):
 	return get_min_fuel(nums, funcref(self, "get_fuel")) 
 
 func solve():
-	# var input = "16,1,2,0,4,2,7,1,2,14"
-	var input = Utils.slurp("res://solutions/day07/input.txt")
+	var input = "16,1,2,0,4,2,7,1,2,14"
+	# var input = Utils.slurp("res://solutions/day07/input.txt")
 	var nums = []
 	for n in input.split(","): nums.push_back(int(n))
-	# nums.sort()
+	nums.sort()
 	print(part1(nums))
-	print(part2(nums))
+	# print(part2(nums))
 
 func _ready():
 	solve()
+	Utils.visualize(viz_steps, self)

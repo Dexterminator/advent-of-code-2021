@@ -31,3 +31,11 @@ func regex_group_list(s, re):
 			match_groups.push_back(m.get_string(i))
 		res.push_back(match_groups)
 	return res
+
+func visualize(viz_steps, inst):
+	for step in viz_steps:
+		var func_name = step[0]
+		var args = step.slice(1, len(step))
+		var f = funcref(inst, func_name).call_funcv(args)
+		if f is GDScriptFunctionState:
+			yield(f, "completed")

@@ -24,14 +24,6 @@ func append_sum(count_by_timer, new_fish):
 	for n in count_by_timer: sum += n
 	viz_steps.push_back(["update_viz", sum, new_fish])
 
-func visualize():
-	for step in viz_steps:
-		var func_name = step[0]
-		var args = step.slice(1, len(step))
-		var f = funcref(self, func_name).call_funcv(args)
-		if f is GDScriptFunctionState:
-			yield(f, "completed")
-
 func simulate(count_by_timer):
 	var new_fish = count_by_timer[0]
 	for i in len(count_by_timer)-1:
@@ -64,4 +56,4 @@ func solve():
 
 func _ready():
 	solve()
-	visualize()
+	Utils.visualize(viz_steps, self)
